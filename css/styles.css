@@ -911,7 +911,6 @@ body {
 
 .form-field {
   position: relative;
-  /* outline: 1px solid grey; */
   display: flex;
   flex-direction: column;
   margin-bottom: 10px;
@@ -928,6 +927,7 @@ body {
 }
 
 .form-input {
+  width: 100%;
   height: 40px;
   margin: 0;
   padding: 11px 12px;
@@ -956,12 +956,17 @@ body {
   fill: var(--accent-color);
 }
 
-.form-field .icon {
+.wrap-input {
+  position: relative;
+}
+
+.wrap-input .icon {
   position: absolute;
   left: 12px;
-  bottom: 11px;
+  top: 50%;
+  translate: 0 -50%;
+  /* transform: translateY(-50%); */
 
-  display: inline-block;
   width: 18px;
   height: 18px;
 
@@ -1009,18 +1014,19 @@ body {
 .form-field.check {
   align-items: center;
   margin-bottom: 30px;
+  height: 24px;
 }
 
 .form-field.check .form-label {
   margin-bottom: 0;
   font-size: 14px;
-  line-height: 1.71;
+  line-height: 1;
+  letter-spacing: 0.03em;
 }
 
 .icon-checkbox {
   position: relative;
-
-  display: inline-block;
+  bottom: 1px;
   width: 16px;
   height: 15px;
   border: 2px solid var(--primary-txt-color);
@@ -1031,9 +1037,6 @@ body {
 }
 
 .icon-checkbox .icon {
-  left: 0;
-  bottom: 0;
-
   width: 16px;
   height: 15px;
 
@@ -1045,8 +1048,6 @@ body {
   border: transparent;
   background-color: var(--accent-color);
   background-size: contain;
-  /* background-origin: border-box;
-  background-repeat: no-repeat; */
 }
 
 .form-checkbox:checked + .icon-checkbox > .icon {
